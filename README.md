@@ -2,7 +2,7 @@
 
 A week of analyst tickets worked in SQL against an e-commerce dataset of customers, orders, order items, products and refunds. Each day's ticket builds on the one before: from exploring the data, to defining active customers, to tracking down duplicate refunds, to settling a revenue disagreement between two stakeholders, to a monthly net revenue trend.
 
-The queries are written for **DuckDB** (`monthname()`, `INTERVAL 4 HOUR`, `TIMESTAMP` literals).
+These queries were written to resolve the tickets given my AnalystHive for my Week 1 as Junior Data Analyst at a virtual company.
 
 ## Tickets
 
@@ -47,9 +47,3 @@ Step 3 takes Priya's definition and subtracts deduplicated refunds to get net re
 - CTEs to build multi-step logic
 - Window functions: `LAG()` for deduplication and month-over-month comparison, and `SUM() OVER (PARTITION BY ...)` for proportional allocation
 - Reconciling metric definitions between stakeholders
-
-## Possible next steps
-
-- **Consistent deduplication.** Wednesday uses a 1-hour window, while Thursday and Friday use `DISTINCT order_id, amount`. The `DISTINCT` approach would also merge two *legitimate* refunds of the same amount on one order. Using the 1-hour rule everywhere would make the numbers line up.
-- **Months with no refunds.** Friday step 3 uses an inner join, so a month with zero refunds would disappear. A `LEFT JOIN` with `COALESCE(r.refund_dollars, 0)` keeps it.
-- **Ordering.** Friday steps 1 and 2 have no `ORDER BY`, so months can come back in any order. Adding a `month()` column and ordering by it puts June first.
