@@ -2,7 +2,7 @@
 
 A week of analyst tickets worked in SQL against an e-commerce dataset of customers, orders, order items, products and refunds. Each day's ticket builds on the one before: from exploring the data, to defining active customers, to tracking down duplicate refunds, to settling a revenue disagreement between two stakeholders, to a monthly net revenue trend.
 
-These queries were written to resolve the tickets given my AnalystHive for my Week 1 as Junior Data Analyst at a virtual company.
+These queries were written to resolve the tickets given my AnalystHive for my Week 1 as Junior Data Analyst at a virtual company.They're written for DuckDB.
 
 ## Tickets
 
